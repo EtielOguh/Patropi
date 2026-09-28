@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { business } from "@/config/business";
 
+export const dynamic = "force-static";
+
 const routes: Array<{ path: string; changeFrequency: "weekly" | "monthly" | "yearly"; priority: number }> = [
   { path: "", changeFrequency: "weekly", priority: 1 },
   { path: "/restaurante", changeFrequency: "weekly", priority: 0.9 },

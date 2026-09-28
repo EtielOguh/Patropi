@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { MobileBar } from "@/components/MobileBar";
 import { CookieConsent } from "@/components/CookieConsent";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { business } from "@/config/business";
+import { absoluteUrl, assetPath, business } from "@/config/business";
 
 export const metadata: Metadata = {
   metadataBase: new URL(business.siteUrl),
@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   category: "hospitality",
   title: { default: "Hotel e Churrascaria Patropi | Casimiro de Abreu — RJ", template: "%s | Patropi" },
   description: business.description,
-  alternates: { canonical: "/" },
-  openGraph: { type: "website", locale: "pt_BR", siteName: "Patropi", title: "Hotel e Churrascaria Patropi", description: business.description, url: "/", images: [{ url: "/images/fachada-patropi.webp", width: 1600, height: 645, alt: "Fachada do Hotel e Churrascaria Patropi" }] },
-  twitter: { card: "summary_large_image", title: "Hotel e Churrascaria Patropi", description: business.description, images: ["/images/fachada-patropi.webp"] },
-  manifest: "/manifest.webmanifest",
-  icons: { icon: "/icon.png", apple: "/icon.png" },
+  alternates: { canonical: business.siteUrl },
+  openGraph: { type: "website", locale: "pt_BR", siteName: "Patropi", title: "Hotel e Churrascaria Patropi", description: business.description, url: business.siteUrl, images: [{ url: absoluteUrl("/images/fachada-patropi.webp"), width: 1600, height: 645, alt: "Fachada do Hotel e Churrascaria Patropi" }] },
+  twitter: { card: "summary_large_image", title: "Hotel e Churrascaria Patropi", description: business.description, images: [absoluteUrl("/images/fachada-patropi.webp")] },
+  manifest: assetPath("/manifest.webmanifest"),
+  icons: { icon: assetPath("/icon.png"), apple: assetPath("/icon.png") },
   robots: { index: true, follow: true },
 };
 

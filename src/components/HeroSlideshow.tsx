@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Pause, Play } from "lucide-react";
 import { useEffect, useState } from "react";
+import { assetPath } from "@/config/business";
 
 export type HeroSlide = {
   src: string;
@@ -31,7 +32,7 @@ export function HeroSlideshow({ slides }: { slides: readonly HeroSlide[] }) {
           aria-hidden={index !== active}
         >
           <Image
-            src={slide.src}
+            src={assetPath(slide.src)}
             alt={index === active ? slide.alt : ""}
             fill
             priority={index === 0}

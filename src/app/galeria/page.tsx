@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { RealPhoto } from "@/components/RealPhoto";
 import { SectionHeading } from "@/components/SectionHeading";
+import { absoluteUrl } from "@/config/business";
 
 export const metadata: Metadata = {
   title: "Galeria",
   description: "Galeria de fotografias reais do restaurante, hotel e gastronomia da Patropi.",
-  alternates: { canonical: "/galeria" },
-  openGraph: { title: "Galeria Patropi", description: "Restaurante, hotel e gastronomia em imagens reais.", url: "/galeria", images: [{ url: "/images/buffet-patropi.webp", width: 1600, height: 900, alt: "Buffet da Patropi" }] },
+  alternates: { canonical: absoluteUrl("/galeria") },
+  openGraph: { title: "Galeria Patropi", description: "Restaurante, hotel e gastronomia em imagens reais.", url: absoluteUrl("/galeria"), images: [{ url: absoluteUrl("/images/buffet-patropi.webp"), width: 1600, height: 900, alt: "Buffet da Patropi" }] },
 };
 
 export default function GaleriaPage() {

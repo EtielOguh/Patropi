@@ -7,13 +7,13 @@ import { RealPhoto } from "@/components/RealPhoto";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StructuredData } from "@/components/StructuredData";
-import { business, whatsappUrl } from "@/config/business";
+import { absoluteUrl, business, whatsappUrl } from "@/config/business";
 
 export const metadata: Metadata = {
   title: "Contato",
   description: "Fale com o Hotel e Churrascaria Patropi em Casimiro de Abreu.",
-  alternates: { canonical: "/contato" },
-  openGraph: { title: "Contato | Patropi", description: "Telefone, WhatsApp e localização do Hotel e Churrascaria Patropi.", url: "/contato", images: [{ url: "/images/fachada-patropi.webp", width: 1600, height: 645, alt: "Fachada da Patropi" }] },
+  alternates: { canonical: absoluteUrl("/contato") },
+  openGraph: { title: "Contato | Patropi", description: "Telefone, WhatsApp e localização do Hotel e Churrascaria Patropi.", url: absoluteUrl("/contato"), images: [{ url: absoluteUrl("/images/fachada-patropi.webp"), width: 1600, height: 645, alt: "Fachada da Patropi" }] },
 };
 
 const cards = [
@@ -50,7 +50,7 @@ export default function ContatoPage() {
         </div>
       </div></section>
 
-      <section className="bg-sand/50 py-24 sm:py-28"><div className="shell grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-20"><div><SectionHeading eyebrow="Envie uma mensagem" title="Conte o que você precisa." text="O formulário está preparado para conectar o canal oficial de atendimento assim que o provedor for definido."/><p className="mt-6 border-l border-gold pl-5 text-sm leading-6 text-ink/75">Enquanto o envio online estiver em configuração, o formulário orientará você a entrar em contato por telefone.</p></div><Suspense fallback={<div className="min-h-[520px] rounded-3xl bg-white"/>}><ContactForm/></Suspense></div></section>
+      <section className="bg-sand/50 py-24 sm:py-28"><div className="shell grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-20"><div><SectionHeading eyebrow="Envie uma mensagem" title="Conte o que você precisa." text="Preencha os dados e abra uma mensagem pronta no WhatsApp para falar diretamente com a equipe."/><p className="mt-6 border-l border-gold pl-5 text-sm leading-6 text-ink/75">O envio só é concluído quando você confirma a mensagem no WhatsApp.</p></div><Suspense fallback={<div className="min-h-[520px] rounded-3xl bg-white"/>}><ContactForm/></Suspense></div></section>
 
       <section className="bg-white py-24 sm:py-28"><div className="shell grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-20"><SectionHeading eyebrow="Dúvidas frequentes" title="Antes de pegar a estrada." text="Respostas objetivas baseadas apenas nas informações públicas que puderam ser verificadas."/><FAQ items={faq}/></div></section>
     </>

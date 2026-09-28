@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { assetPath } from "@/config/business";
 
 const chapters = [
   { title: "Buffet / self-service", text: "Uma escolha prática para montar a refeição no próprio ritmo, com a variedade que faz parte da experiência da casa.", src: "/images/buffet-patropi.webp", alt: "Buffet e salão da Churrascaria Patropi" },
@@ -28,14 +29,14 @@ export function RestaurantStory() {
     <div className="restaurant-story">
       <div className="story-stage" aria-hidden="true">
         {chapters.map((chapter, index) => (
-          <Image key={chapter.title} src={chapter.src} alt="" fill sizes="50vw" className={`object-cover transition duration-700 ${active === index ? "scale-100 opacity-100" : "scale-[1.03] opacity-0"}`} />
+          <Image key={chapter.title} src={assetPath(chapter.src)} alt="" fill sizes="50vw" className={`object-cover transition duration-700 ${active === index ? "scale-100 opacity-100" : "scale-[1.03] opacity-0"}`} />
         ))}
         <div className="story-counter"><span>0{active + 1}</span><i /><span>0{chapters.length}</span></div>
       </div>
       <div>
         {chapters.map((chapter, index) => (
           <article key={chapter.title} ref={(node) => { steps.current[index] = node; }} className={`story-step ${active === index ? "is-active" : ""}`}>
-            <div className="story-mobile-image"><Image src={chapter.src} alt={chapter.alt} fill sizes="100vw" className="object-cover" /></div>
+            <div className="story-mobile-image"><Image src={assetPath(chapter.src)} alt={chapter.alt} fill sizes="100vw" className="object-cover" /></div>
             <p className="eyebrow text-gold">0{index + 1}</p>
             <h3 className="mt-5 font-display text-4xl sm:text-5xl">{chapter.title}</h3>
             <p className="mt-5 max-w-lg text-base leading-7 text-white/75">{chapter.text}</p>

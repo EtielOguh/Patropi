@@ -11,13 +11,13 @@ import { RoadLocation } from "@/components/RoadLocation";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StructuredData } from "@/components/StructuredData";
-import { business, whatsappUrl } from "@/config/business";
+import { absoluteUrl, business, whatsappUrl } from "@/config/business";
 
 export const metadata: Metadata = {
   title: "Restaurante e Churrascaria",
   description: "Restaurante e churrascaria às margens da BR-101 em Casimiro de Abreu, com buffet, churrasco e sabores variados.",
-  alternates: { canonical: "/restaurante" },
-  openGraph: { title: "Restaurante e Churrascaria Patropi", description: "Buffet, churrasco e sabores variados às margens da BR-101.", url: "/restaurante", images: [{ url: "/images/buffet-patropi.webp", width: 1600, height: 900, alt: "Buffet da Churrascaria Patropi" }] },
+  alternates: { canonical: absoluteUrl("/restaurante") },
+  openGraph: { title: "Restaurante e Churrascaria Patropi", description: "Buffet, churrasco e sabores variados às margens da BR-101.", url: absoluteUrl("/restaurante"), images: [{ url: absoluteUrl("/images/buffet-patropi.webp"), width: 1600, height: 900, alt: "Buffet da Churrascaria Patropi" }] },
 };
 
 const heroSlides = [

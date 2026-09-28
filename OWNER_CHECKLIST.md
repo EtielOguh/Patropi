@@ -18,7 +18,6 @@ O site mantém dados públicos divergentes centralizados em `src/config/business
 - [x] Seleção inicial de fotos públicas dos canais oficiais incorporada
 - [ ] Receber os arquivos originais em alta resolução e a autorização definitiva de uso
 - [ ] Cardápio, preços e disponibilidade, se forem publicados
-- [ ] Provedor de envio do formulário (`CONTACT_WEBHOOK_URL`)
 - [ ] Sistema/motor de reservas, caso exista
 - [ ] IDs do Google Places para avaliações dinâmicas
 - [ ] Chaves de GA4/GTM e texto final de consentimento

@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, MessageCircle, UtensilsCrossed } from "lucide-react";
 import { RealPhoto } from "@/components/RealPhoto";
-import { business, whatsappUrl } from "@/config/business";
+import { absoluteUrl, business, whatsappUrl } from "@/config/business";
 
 export const metadata: Metadata = {
   title: "Cardápio",
   description: "Área preparada para o cardápio oficial da Churrascaria Patropi.",
-  alternates: { canonical: "/restaurante/cardapio" },
+  alternates: { canonical: absoluteUrl("/restaurante/cardapio") },
   robots: { index: false, follow: true },
-  openGraph: { title: "Cardápio | Churrascaria Patropi", description: "Área preparada para receber o cardápio oficial da Patropi.", url: "/restaurante/cardapio", images: [{ url: "/images/prato-buffet.webp", width: 360, height: 640, alt: "Pratos quentes do buffet da Patropi" }] },
+  openGraph: { title: "Cardápio | Churrascaria Patropi", description: "Área preparada para receber o cardápio oficial da Patropi.", url: absoluteUrl("/restaurante/cardapio"), images: [{ url: absoluteUrl("/images/prato-buffet.webp"), width: 360, height: 640, alt: "Pratos quentes do buffet da Patropi" }] },
 };
 
 export default function CardapioPage() {

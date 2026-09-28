@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { assetPath } from "@/config/business";
 
 const photos = [
   { label: "Buffet", src: "/images/buffet-patropi.webp", alt: "Buffet e salão da Churrascaria Patropi" },
@@ -49,7 +50,7 @@ export function HorizontalGallery() {
         </div>
         {photos.map((photo, index) => (
           <figure key={photo.label} className={`horizontal-card ${index % 2 ? "lg:translate-y-10" : "lg:-translate-y-8"}`}>
-            <div className="relative h-full min-h-[420px]"><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 1024px) 100vw, 38vw" className="object-cover" /></div>
+            <div className="relative h-full min-h-[420px]"><Image src={assetPath(photo.src)} alt={photo.alt} fill sizes="(max-width: 1024px) 100vw, 38vw" className="object-cover" /></div>
             <figcaption><span>0{index + 1}</span>{photo.label}</figcaption>
           </figure>
         ))}

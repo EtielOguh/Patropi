@@ -9,13 +9,13 @@ import { RoadLocation } from "@/components/RoadLocation";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { StructuredData } from "@/components/StructuredData";
-import { business, whatsappUrl } from "@/config/business";
+import { absoluteUrl, business, whatsappUrl } from "@/config/business";
 
 export const metadata: Metadata = {
   title: "Hotel",
   description: "Hotel às margens da BR-101 em Casimiro de Abreu. Consulte disponibilidade de hospedagem diretamente com a Patropi.",
-  alternates: { canonical: "/hotel" },
-  openGraph: { title: "Hotel Patropi", description: "Hospedagem prática e acolhedora às margens da BR-101.", url: "/hotel", images: [{ url: "/images/fachada-patropi.webp", width: 1600, height: 645, alt: "Fachada do Hotel Patropi" }] },
+  alternates: { canonical: absoluteUrl("/hotel") },
+  openGraph: { title: "Hotel Patropi", description: "Hospedagem prática e acolhedora às margens da BR-101.", url: absoluteUrl("/hotel"), images: [{ url: absoluteUrl("/images/fachada-patropi.webp"), width: 1600, height: 645, alt: "Fachada do Hotel Patropi" }] },
 };
 
 const amenities = [

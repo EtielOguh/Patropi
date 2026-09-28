@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/config/business";
 
 export function RealPhoto({
   src,
@@ -20,7 +21,7 @@ export function RealPhoto({
   return (
     <figure className={`group relative overflow-hidden bg-olive/10 ${className}`}>
       <Image
-        src={src}
+        src={assetPath(src)}
         alt={alt}
         fill
         priority={priority}

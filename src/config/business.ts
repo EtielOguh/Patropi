@@ -1,9 +1,17 @@
 export type Verification = "confirmed" | "public-source" | "needs-confirmation";
 
+const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH?.trim() || "";
+export const basePath = configuredBasePath === "/" ? "" : configuredBasePath.replace(/\/$/, "");
+
+export function assetPath(path: string) {
+  if (!path.startsWith("/") || !basePath || path.startsWith(`${basePath}/`)) return path;
+  return `${basePath}${path}`;
+}
+
 export const business = {
   name: "Patropi",
   legalDisplayName: "Hotel e Churrascaria Patropi",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.redepatropi.com.br",
+  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || "https://www.redepatropi.com.br").replace(/\/$/, ""),
   description:
     "Restaurante, churrascaria e hospedagem às margens da BR-101, em Casimiro de Abreu, Rio de Janeiro.",
   location: {
@@ -92,4 +100,8 @@ export function trackEvent(name: string, data: Record<string, string> = {}) {
 
 export function whatsappUrl(message: string) {
   return `https://wa.me/${business.whatsapp.digits}?text=${encodeURIComponent(message)}`;
+}
+
+export function absoluteUrl(path = "") {
+  return `${business.siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
 }
