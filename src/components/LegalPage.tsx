@@ -17,7 +17,7 @@ export function LegalPage({ eyebrow, title, updated = "23 de setembro de 2026", 
         <div className="shell relative">
           <nav className="mb-10 flex items-center gap-1 text-xs text-white/70" aria-label="Breadcrumb"><Link href="/">Início</Link><ChevronRight size={13}/><span>{eyebrow}</span></nav>
           <p className="eyebrow text-gold">{eyebrow}</p>
-          <h1 className="mt-5 max-w-4xl font-display text-5xl leading-tight sm:text-6xl">{title}</h1>
+          <h1 className="mt-5 max-w-4xl font-display text-display-1-compact">{title}</h1>
           <p className="mt-5 text-sm text-white/70">Modelo informativo · última atualização: {updated}</p>
         </div>
       </section>
@@ -30,8 +30,8 @@ export function LegalPage({ eyebrow, title, updated = "23 de setembro de 2026", 
             </nav>
           </aside>
           <div>
-            <article className="prose-patropi rounded-[2rem] border border-ink/10 bg-white p-7 shadow-sm sm:p-12">{children}</article>
-            <div className="mt-5 flex flex-col gap-5 rounded-2xl bg-sand/55 p-6 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-display text-xl">Ainda precisa de ajuda?</p><p className="mt-1 text-sm text-ink/75">Fale diretamente com a equipe da Patropi.</p></div><Link href="/contato" className="btn-secondary self-start">Abrir contato <ArrowRight size={16}/></Link></div>
+            <article className="prose-patropi rounded-media border border-border bg-surface p-7 shadow-soft sm:p-12">{children}</article>
+            <div className="mt-5 flex flex-col gap-5 rounded-card bg-sand/55 p-6 sm:flex-row sm:items-center sm:justify-between"><div><p className="font-display text-xl">Ainda precisa de ajuda?</p><p className="mt-1 text-sm text-ink/75">Fale diretamente com a equipe do Patropi.</p></div><Link href="/contato" className="btn-secondary self-start">Abrir contato <ArrowRight size={16}/></Link></div>
           </div>
         </div>
       </section>

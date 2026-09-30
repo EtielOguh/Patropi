@@ -10,6 +10,7 @@ export function RoadLocation({ dark = false }: { dark?: boolean }) {
   const line = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let context: { revert: () => void } | undefined;
     let cancelled = false;
     const observer = new IntersectionObserver(([entry]) => {
@@ -30,7 +31,7 @@ export function RoadLocation({ dark = false }: { dark?: boolean }) {
   }, []);
 
   return (
-    <section ref={section} id="localizacao" className={dark ? "bg-ink py-24 text-white" : "py-24"}>
+    <section ref={section} id="localizacao" className={dark ? "bg-ink py-section text-white sm:py-section-lg" : "py-section sm:py-section-lg"}>
       <div className="shell grid items-center gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
         <div>
           <SectionHeading eyebrow="Localização" title="No caminho de quem passa pela BR-101." text="Restaurante e hospedagem reunidos em uma parada prática, às margens da rodovia, em Casimiro de Abreu." light={dark} />
@@ -41,8 +42,8 @@ export function RoadLocation({ dark = false }: { dark?: boolean }) {
           <p className={`mt-6 text-sm ${dark ? "text-white/70" : "text-ink/75"}`}>{business.location.display}</p>
           <a href={business.location.mapsUrl} target="_blank" rel="noreferrer" className={`btn-primary mt-7 ${dark ? "btn-gold" : ""}`}><Navigation size={16} /> Traçar rota</a>
         </div>
-        <div className={`aspect-[4/3] overflow-hidden rounded-[2rem] border ${dark ? "border-white/10 bg-white/5" : "border-ink/10 bg-white"}`}>
-          <iframe src={business.location.embedUrl} title="Mapa da localização da Patropi" className="h-full w-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+        <div className={`aspect-[4/3] overflow-hidden rounded-media border ${dark ? "border-white/10 bg-white/5" : "border-ink/10 bg-white"}`}>
+          <iframe src={business.location.embedUrl} title="Mapa da localização do Patropi" className="h-full w-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
         </div>
       </div>
     </section>

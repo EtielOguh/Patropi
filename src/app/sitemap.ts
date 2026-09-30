@@ -18,5 +18,5 @@ const routes: Array<{ path: string; changeFrequency: "weekly" | "monthly" | "yea
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date("2026-09-27T00:00:00-03:00");
-  return routes.map(({ path, changeFrequency, priority }) => ({ url: `${business.siteUrl}${path}`, lastModified, changeFrequency, priority }));
+  return routes.map(({ path, changeFrequency, priority }) => ({ url: path ? `${business.siteUrl}${path}/` : `${business.siteUrl}/`, lastModified, changeFrequency, priority }));
 }

@@ -17,13 +17,14 @@ export const metadata: Metadata = {
   title: "Restaurante e Churrascaria",
   description: "Restaurante e churrascaria às margens da BR-101 em Casimiro de Abreu, com buffet, churrasco e sabores variados.",
   alternates: { canonical: absoluteUrl("/restaurante") },
-  openGraph: { title: "Restaurante e Churrascaria Patropi", description: "Buffet, churrasco e sabores variados às margens da BR-101.", url: absoluteUrl("/restaurante"), images: [{ url: absoluteUrl("/images/buffet-patropi.webp"), width: 1600, height: 900, alt: "Buffet da Churrascaria Patropi" }] },
+  openGraph: { title: "Restaurante e Churrascaria Patropi", description: "Buffet, churrasco e sabores variados às margens da BR-101.", url: absoluteUrl("/restaurante"), images: [{ url: absoluteUrl("/images/buffet-patropi.webp"), width: 1600, height: 900, alt: "Buffet do restaurante Patropi" }] },
+  twitter: { card: "summary_large_image", title: "Restaurante e Churrascaria Patropi", description: "Buffet, churrasco e sabores variados às margens da BR-101.", images: [absoluteUrl("/images/buffet-patropi.webp")] },
 };
 
 const heroSlides = [
-  { src: "/images/buffet-patropi.webp", alt: "Buffet completo da Churrascaria Patropi" },
-  { src: "/images/churrasco-patropi.webp", alt: "Churrasco preparado na Patropi", position: "center" },
-  { src: "/images/sobremesa-chocolate.webp", alt: "Sobremesa servida na Patropi", position: "center" },
+  { src: "/images/buffet-patropi.webp", alt: "Buffet completo do restaurante Patropi" },
+  { src: "/images/churrasco-patropi.webp", alt: "Churrasco preparado no Patropi", position: "center" },
+  { src: "/images/sobremesa-chocolate.webp", alt: "Sobremesa servida no Patropi", position: "center" },
 ] as const;
 
 export default function RestaurantePage() {
@@ -37,19 +38,19 @@ export default function RestaurantePage() {
         <a href={whatsappUrl("Olá! Gostaria de informações sobre o restaurante Patropi.")} target="_blank" rel="noreferrer" className="btn-secondary btn-light"><MessageCircle size={16}/> Falar com o restaurante</a>
       </CinematicPageHero>
 
-      <section className="py-24 sm:py-32">
+      <section className="py-section-sm sm:py-section-lg">
         <div className="shell grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:gap-24">
           <ScrollReveal><SectionHeading eyebrow="À mesa" title="Variedade, praticidade e uma pausa sem pressa." /></ScrollReveal>
-          <ScrollReveal delay={100}><p className="text-lg leading-8 text-ink/75">Fontes públicas descrevem uma operação com buffet/self-service, churrasco e culinárias brasileira e japonesa. A experiência é apresentada com clareza, sem promessas sobre cardápio, preços ou disponibilidade.</p><Link href="/restaurante/cardapio" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-ember">Consultar área do cardápio <ArrowRight size={15}/></Link></ScrollReveal>
+          <ScrollReveal delay={100}><p className="max-w-[62ch] text-body-lg text-ink/75">Fontes públicas descrevem uma operação com buffet/self-service, churrasco e culinárias brasileira e japonesa. A experiência é apresentada com clareza, sem promessas sobre cardápio, preços ou disponibilidade.</p><Link href="/restaurante/cardapio" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-ember">Consultar área do cardápio <ArrowRight size={15}/></Link></ScrollReveal>
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-white sm:py-28">
-        <div className="shell mb-10 lg:mb-0"><p className="eyebrow text-gold">A experiência</p><h2 className="mt-5 max-w-3xl font-display text-4xl leading-tight sm:text-5xl">Quatro sabores da Patropi, apresentados no ritmo da sua visita.</h2></div>
+      <section className="bg-ink py-section-sm text-white sm:py-section-lg">
+        <div className="shell mb-10 lg:mb-0"><p className="eyebrow text-gold">A experiência</p><h2 className="mt-5 max-w-3xl font-display text-display-2">Quatro sabores do Patropi, apresentados no ritmo da sua visita.</h2></div>
         <div className="shell mt-12"><RestaurantStory /></div>
       </section>
 
-      <section className="bg-white py-24 sm:py-28">
+      <section className="bg-white py-section-sm sm:py-section-lg">
         <div className="shell grid items-start gap-12 lg:grid-cols-[.75fr_1.25fr] lg:gap-20">
           <div><SectionHeading eyebrow="Planeje sua visita" title="Horários claros, sem surpresa no caminho." text="Consulte o funcionamento indicado e confirme por telefone antes de sair, especialmente em feriados e datas especiais."/><a href={`tel:${business.restaurant.phone.href}`} className="btn-secondary mt-7"><Phone size={16}/> Ligar para o restaurante</a></div>
           <HoursTable />
@@ -58,7 +59,7 @@ export default function RestaurantePage() {
 
       <HorizontalGallery />
 
-      <section className="bg-ink py-24 text-white"><div className="shell"><SectionHeading eyebrow="Avaliações públicas" title="O que os visitantes contam sobre a experiência." light/><div className="mt-12"><ReviewsMarquee compact/></div><p className="mt-5 text-xs text-white/65">Trechos curtos de avaliações públicas. Opiniões pertencem a seus autores.</p></div></section>
+      <section className="bg-ink py-section-sm text-white sm:py-section-lg"><div className="shell"><SectionHeading eyebrow="Avaliações públicas" title="O que os visitantes contam sobre a experiência." light/><div className="mt-12"><ReviewsMarquee compact/></div><p className="mt-5 text-xs text-white/65">Trechos curtos de avaliações públicas. Opiniões pertencem a seus autores.</p></div></section>
 
       <RoadLocation />
       <FinalCTA context="restaurante" />

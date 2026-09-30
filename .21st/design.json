@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "project": {
+    "name": "rede-patropi",
+    "productType": "hospitality",
+    "stack": [
+      "nextjs",
+      "react",
+      "tailwind-v3"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "src/app/globals.css"
+    ],
+    "components": [],
+    "assets": [
+      "public/images"
+    ],
+    "instructions": [
+      "AGENTS.md"
+    ]
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "identity": ["ink", "cream", "sand", "olive", "moss", "ember", "wine", "gold"],
+      "semantic": ["brand-primary", "brand-primary-hover", "brand-secondary", "brand-dark", "accent", "background", "surface", "surface-muted", "surface-elevated", "text-primary", "text-secondary", "muted", "border", "border-strong"]
+    },
+    "typography": {
+      "display": "Georgia, Times New Roman, serif",
+      "sans": "Arial, Helvetica, sans-serif",
+      "scale": ["display-1", "display-1-compact", "display-2", "display-3", "body", "body-lg", "label"]
+    },
+    "spacing": {
+      "sections": ["section-sm:64px", "section:88px", "section-lg:112px"],
+      "container": "1180px",
+      "gutter": "20px"
+    },
+    "radius": {
+      "control": "12px",
+      "cardMedia": "20px",
+      "pill": "9999px"
+    },
+    "shadows": {
+      "soft": "0 12px 32px rgb(25 53 45 / 0.10)",
+      "elevated": "0 20px 48px rgb(25 53 45 / 0.14)"
+    },
+    "motion": {
+      "principle": "restrained-editorial",
+      "reducedMotion": "disable autoplay, drift and nonessential transforms"
+    },
+    "density": "comfortable"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [
+      "Preserve Patropi's deep green, cream and gold identity",
+      "Preserve real photography and editorial hospitality tone",
+      "Use the semantic tokens defined in tailwind.config.ts"
+    ],
+    "avoid": [
+      "SaaS visual language",
+      "Decorative glow and gratuitous gradients",
+      "Gold body text on cream backgrounds",
+      "Unnecessary pill shapes and heavy shadows"
+    ]
+  },
+  "decisions": [
+    {
+      "decision": "Consolidate the existing palette into semantic aliases without changing the brand colors.",
+      "reason": "Improve consistency while preserving the established identity."
+    },
+    {
+      "decision": "Keep Georgia/Times for display and Arial/Helvetica for interface and body copy.",
+      "reason": "Typography family changes are outside the controlled foundation phase."
+    },
+    {
+      "decision": "Use three primary radii and two restrained elevation levels.",
+      "reason": "Reduce visual drift and avoid floating SaaS-style cards."
+    },
+    {
+      "decision": "Use a contextual hero scale: primary editorial heroes progress from 44px to 80px, while compact internal heroes progress from 42px to 72px.",
+      "reason": "Preserve the Patropi's editorial presence without letting headings dominate intermediate viewports."
+    },
+    {
+      "decision": "Keep one visually dominant action in each hero and render auxiliary route links with lower emphasis.",
+      "reason": "Make the next step clear while preserving access to secondary destinations."
+    },
+    {
+      "decision": "Present small review sets as a static editorial composition instead of an infinite marquee.",
+      "reason": "Keep every review visible and readable without duplicated content, clipped cards or decorative motion."
+    },
+    {
+      "decision": "Use divider-based information lists for hours, amenities and secondary contact channels; reserve filled containers for primary actions.",
+      "reason": "Reduce template-like card repetition while preserving scanability and hierarchy."
+    },
+    {
+      "decision": "Keep the existing custom gallery lightbox and harden its dialog semantics, focus containment, focus restoration, background inertness and scroll locking.",
+      "reason": "It already matches the visual language and can meet the interaction requirements without adding a new primitive or runtime dependency."
+    },
+    {
+      "decision": "Use restrained editorial motion and disable autoplay and nonessential transforms when reduced motion is requested.",
+      "reason": "Preserve atmosphere without making movement compete with content or accessibility preferences."
+    },
+    {
+      "decision": "Use a custom accessible date-range calendar for hotel availability, presented as an anchored popover on desktop and a full-screen panel on mobile.",
+      "reason": "Keep date selection touch-friendly, timezone-safe and visually integrated with the Patropi identity without adding a runtime dependency."
+    }
+  ],
+  "evidence": [
+    {
+      "fact": "design.colorMode:light",
+      "source": "src/app/globals.css"
+    },
+    {
+      "fact": "design.tokens",
+      "source": "src/app/globals.css"
+    },
+    {
+      "fact": "project.instructions",
+      "source": "AGENTS.md"
+    },
+    {
+      "fact": "project.stack:nextjs",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:react",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:tailwind-v3",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-09-28T14:15:41.065Z"
+}

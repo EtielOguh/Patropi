@@ -14,17 +14,26 @@ export type HeroSlide = {
 export function HeroSlideshow({ slides }: { slides: readonly HeroSlide[] }) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    if (paused || slides.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (paused || reducedMotion || slides.length < 2) return;
     const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % slides.length);
     }, 5500);
     return () => window.clearInterval(timer);
-  }, [paused, slides.length]);
+  }, [paused, reducedMotion, slides.length]);
 
   return (
-    <div className="hero-slideshow" aria-label="Fotografias da Patropi">
+    <div className="hero-slideshow" role="region" aria-label="Fotografias do Patropi">
       {slides.map((slide, index) => (
         <div
           key={slide.src}
@@ -35,7 +44,7 @@ export function HeroSlideshow({ slides }: { slides: readonly HeroSlide[] }) {
             src={assetPath(slide.src)}
             alt={index === active ? slide.alt : ""}
             fill
-            priority={index === 0}
+            loading={index === 0 ? "eager" : "lazy"}
             sizes="100vw"
             className="object-cover"
             style={{ objectPosition: slide.position || "center" }}
@@ -43,7 +52,7 @@ export function HeroSlideshow({ slides }: { slides: readonly HeroSlide[] }) {
         </div>
       ))}
       <div className="hero-controls">
-        <div className="flex gap-2" aria-label="Selecionar fotografia">
+        <div className="flex gap-2" role="group" aria-label="Selecionar fotografia">
           {slides.map((slide, index) => (
             <button
               key={slide.src}
@@ -55,14 +64,14 @@ export function HeroSlideshow({ slides }: { slides: readonly HeroSlide[] }) {
             />
           ))}
         </div>
-        <button
+        {!reducedMotion && <button
           type="button"
           className="hero-pause"
           onClick={() => setPaused((value) => !value)}
           aria-label={paused ? "Retomar apresentação" : "Pausar apresentação"}
         >
           {paused ? <Play size={14} /> : <Pause size={14} />}
-        </button>
+        </button>}
       </div>
     </div>
   );

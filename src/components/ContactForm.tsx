@@ -17,7 +17,7 @@ export function ContactForm() {
     const form = event.currentTarget;
     const payload = Object.fromEntries(new FormData(form));
     const message = [
-      "Olá! Gostaria de falar com a Patropi.",
+      "Olá! Gostaria de falar com o Patropi.",
       "",
       `Nome: ${payload.name}`,
       `Telefone: ${payload.phone}`,
@@ -34,7 +34,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={submit} className="rounded-3xl bg-white p-6 shadow-soft sm:p-9">
+    <form onSubmit={submit} className="rounded-card bg-white p-6 shadow-soft sm:p-9">
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="form-label"><span>Nome *</span><input className="form-input" name="name" required minLength={2} autoComplete="name" /></label>
         <label className="form-label"><span>Telefone *</span><input className="form-input" name="phone" required inputMode="tel" autoComplete="tel" /></label>

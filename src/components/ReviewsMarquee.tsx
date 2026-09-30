@@ -7,17 +7,17 @@ const reviews = [
   { text: "Ótima variedade no self-service. Limpo e bom atendimento.", name: "Tania Dian", source: "Tripadvisor · Restaurante", url: business.reviews.tripadvisorRestaurantUrl, scope: "restaurante" },
 ] as const;
 
-function ReviewCard({ review, duplicate = false }: { review: (typeof reviews)[number]; duplicate?: boolean }) {
+function ReviewEntry({ review }: { review: (typeof reviews)[number] }) {
   return (
-    <a href={review.url} target="_blank" rel="noreferrer" className="review-card" aria-hidden={duplicate || undefined} tabIndex={duplicate ? -1 : undefined}>
-      <div className="flex items-center justify-between">
+    <a href={review.url} target="_blank" rel="noreferrer" className="review-entry">
+      <div className="review-entry-heading">
         <Quote size={24} className="text-gold" />
         <div className="flex text-gold" aria-label="5 de 5 estrelas">
           {[1, 2, 3, 4, 5].map((star) => <Star key={star} size={13} fill="currentColor" />)}
         </div>
       </div>
-      <blockquote className="mt-7 font-display text-2xl leading-snug">“{review.text}”</blockquote>
-      <p className="mt-7 text-sm font-bold">{review.name}</p>
+      <blockquote className="review-entry-quote">“{review.text}”</blockquote>
+      <p className="mt-7 text-sm font-bold text-white">{review.name}</p>
       <p className="mt-1 text-xs text-white/70">{review.source}</p>
     </a>
   );
@@ -25,12 +25,11 @@ function ReviewCard({ review, duplicate = false }: { review: (typeof reviews)[nu
 
 export function ReviewsMarquee({ compact = false, scope }: { compact?: boolean; scope?: "restaurante" | "hotel" }) {
   const selected = scope ? reviews.filter((review) => review.scope === scope) : reviews;
-  const loop = compact ? selected : [...selected, ...selected];
+  const layout = selected.length === 1 ? "is-single" : selected.length === 2 ? "is-pair" : "is-trio";
+
   return (
-    <div className={`reviews-viewport ${compact ? "is-compact" : ""}`}>
-      <div className="reviews-track">
-        {loop.map((review, index) => <ReviewCard key={`${review.name}-${index}`} review={review} duplicate={!compact && index >= selected.length} />)}
-      </div>
+    <div className={`reviews-editorial ${layout} ${compact ? "is-compact" : ""}`}>
+      {selected.map((review) => <ReviewEntry key={review.name} review={review} />)}
     </div>
   );
 }

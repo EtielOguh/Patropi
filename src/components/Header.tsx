@@ -60,6 +60,7 @@ export function Header() {
           <MessageCircle size={16} /> Consultar disponibilidade
         </a>
         <button
+          type="button"
           ref={menuButton}
           className="grid size-11 place-items-center rounded-full border border-ink/15 xl:hidden"
           onClick={() => setOpen(!open)}
@@ -72,10 +73,10 @@ export function Header() {
       </div>
       {open && (
         <nav ref={menu} id="mobile-menu" className="fixed inset-x-0 top-[76px] z-50 flex h-[calc(100dvh-76px)] overflow-y-auto bg-cream xl:hidden" aria-label="Menu mobile">
-          <div className="shell flex flex-1 flex-col justify-center py-10">
+          <div className="mobile-menu-content shell flex flex-1 flex-col justify-center py-10">
             <p className="eyebrow mb-8 text-ember">Navegação</p>
             {navigation.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="border-b border-ink/10 py-4 font-display text-3xl leading-none transition hover:pl-2 hover:text-ember">
+              <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="border-b border-ink/10 py-4 font-display text-3xl leading-none transition-colors hover:text-ember">
                 {item.label}
               </Link>
             ))}
