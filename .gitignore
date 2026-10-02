@@ -228,3 +228,6 @@ yarn-debug.log*
 yarn-error.log*
 *.tsbuildinfo
 .DS_Store
+
+# Originais fotográficos locais (o site usa derivados em public/images)
+fotos gerais/

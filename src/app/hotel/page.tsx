@@ -29,11 +29,12 @@ const amenities = [
 
 const heroSlides = [
   { src: "/images/fachada-patropi.webp", alt: "Fachada do Hotel e Churrascaria Patropi" },
-  { src: "/images/quarto-patropi.webp", alt: "Quarto do Hotel Patropi", position: "center 58%" },
+  { src: "/images/hotel/suite-principal.webp", alt: "Suíte principal do Hotel Patropi", position: "center 58%" },
+  { src: "/images/hotel/cafe-da-manha-buffet.webp", alt: "Café da manhã servido no Hotel Patropi", position: "center" },
 ] as const;
 
 export default function HotelPage() {
-  const schema = { "@context":"https://schema.org", "@type":"Hotel", name:"Hotel Patropi", url:`${business.siteUrl}/hotel`, image:[`${business.siteUrl}/images/fachada-patropi.webp`,`${business.siteUrl}/images/quarto-patropi.webp`], telephone:business.hotel.phone.href, address:{"@type":"PostalAddress",streetAddress:business.location.street,addressLocality:business.location.city,addressRegion:business.location.state,postalCode:business.location.postalCode,addressCountry:"BR"} };
+  const schema = { "@context":"https://schema.org", "@type":"Hotel", name:"Hotel Patropi", url:`${business.siteUrl}/hotel`, image:[`${business.siteUrl}/images/fachada-patropi.webp`,`${business.siteUrl}/images/hotel/suite-principal.webp`,`${business.siteUrl}/images/hotel/cafe-da-manha-buffet.webp`], telephone:business.hotel.phone.href, address:{"@type":"PostalAddress",streetAddress:business.location.street,addressLocality:business.location.city,addressRegion:business.location.state,postalCode:business.location.postalCode,addressCountry:"BR"} };
 
   return (
     <>
@@ -45,7 +46,7 @@ export default function HotelPage() {
       <section className="py-section-sm sm:py-section-lg">
         <div className="shell grid items-center gap-12 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
           <ScrollReveal><SectionHeading eyebrow="Uma pausa conveniente" title="O essencial para recuperar as energias." text="Quartos e suítes são apresentados sem promessas exageradas: uma base confortável para quem viaja, trabalha ou visita a região."/></ScrollReveal>
-          <ScrollReveal delay={120}><RealPhoto src="/images/quarto-patropi.webp" alt="Quarto com cama de casal no Hotel Patropi" className="service-visual aspect-[4/3]" sizes="(max-width: 1024px) 100vw, 55vw" position="center 58%"/></ScrollReveal>
+          <ScrollReveal delay={120}><RealPhoto src="/images/hotel/quarto-standard.webp" alt="Quarto standard do Hotel Patropi" className="service-visual aspect-[4/3]" sizes="(max-width: 1024px) 100vw, 55vw" position="center 58%"/></ScrollReveal>
         </div>
       </section>
 
@@ -59,10 +60,14 @@ export default function HotelPage() {
       </section>
 
       <section className="py-section-sm sm:py-section-lg">
-        <div className="shell"><SectionHeading eyebrow="Acomodações" title="Imagens reais para escolher com mais clareza." text="O acervo disponível apresenta a fachada e uma das acomodações. Categorias, capacidade, camas e tarifas serão incluídas somente após validação oficial."/>
-          <div className="mt-12 grid gap-5 lg:grid-cols-[1.25fr_.75fr]">
-            <ScrollReveal><RealPhoto src="/images/quarto-patropi.webp" alt="Acomodação do Hotel Patropi" className="min-h-[580px] rounded-media" sizes="(max-width: 1024px) 100vw, 62vw" position="center 55%"/></ScrollReveal>
-            <ScrollReveal delay={120}><RealPhoto src="/images/fachada-patropi.webp" alt="Fachada iluminada do Hotel Patropi" className="min-h-[580px] rounded-media" sizes="(max-width: 1024px) 100vw, 38vw"/></ScrollReveal>
+        <div className="shell"><SectionHeading eyebrow="Acomodações" title="Imagens reais para escolher com mais clareza." text="Quartos, suíte e áreas do hotel apresentados em diferentes perspectivas. Categorias, capacidade, camas e tarifas serão incluídas somente após validação oficial."/>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:auto-rows-[280px] lg:grid-cols-12">
+            <ScrollReveal className="md:col-span-2 lg:col-span-7 lg:row-span-2"><RealPhoto src="/images/hotel/suite-principal.webp" alt="Suíte principal do Hotel Patropi" className="h-full min-h-[440px] rounded-media lg:min-h-0" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 58vw" position="center 55%"/></ScrollReveal>
+            <ScrollReveal delay={80} className="lg:col-span-5"><RealPhoto src="/images/hotel/quarto-standard.webp" alt="Quarto standard do Hotel Patropi" className="h-full min-h-[280px] rounded-media lg:min-h-0" sizes="(max-width: 768px) 100vw, 50vw"/></ScrollReveal>
+            <ScrollReveal delay={120} className="lg:col-span-5"><RealPhoto src="/images/hotel/suite-hidromassagem.webp" alt="Hidromassagem da suíte do Hotel Patropi" className="h-full min-h-[280px] rounded-media lg:min-h-0" sizes="(max-width: 768px) 100vw, 42vw"/></ScrollReveal>
+            <ScrollReveal className="lg:col-span-4"><RealPhoto src="/images/hotel/suite-banheiro.webp" alt="Banheiro da suíte do Hotel Patropi" className="h-full min-h-[280px] rounded-media lg:min-h-0" sizes="(max-width: 768px) 100vw, 33vw"/></ScrollReveal>
+            <ScrollReveal delay={80} className="lg:col-span-4"><RealPhoto src="/images/hotel/corredor.webp" alt="Corredor interno do Hotel Patropi" className="h-full min-h-[280px] rounded-media lg:min-h-0" sizes="(max-width: 768px) 100vw, 33vw"/></ScrollReveal>
+            <ScrollReveal delay={120} className="lg:col-span-4"><RealPhoto src="/images/hotel/recepcao.webp" alt="Recepção do Hotel Patropi" className="h-full min-h-[280px] rounded-media lg:min-h-0" sizes="(max-width: 768px) 100vw, 33vw"/></ScrollReveal>
           </div>
         </div>
       </section>

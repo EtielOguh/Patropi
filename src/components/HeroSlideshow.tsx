@@ -44,7 +44,8 @@ export function HeroSlideshow({ slides }: { slides: readonly HeroSlide[] }) {
             src={assetPath(slide.src)}
             alt={index === active ? slide.alt : ""}
             fill
-            loading={index === 0 ? "eager" : "lazy"}
+            loading="eager"
+            fetchPriority={index === 0 ? "high" : "auto"}
             sizes="100vw"
             className="object-cover"
             style={{ objectPosition: slide.position || "center" }}

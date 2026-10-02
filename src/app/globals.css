@@ -148,7 +148,7 @@ body { margin: 0; overflow-x: clip; background: var(--color-background); color: 
 .story-counter i { height: 1px; flex: 1; background: theme("colors.border-inverse-strong"); }
 .story-step { min-height: 68vh; display: flex; flex-direction: column; justify-content: center; opacity: .35; transition: opacity .45s ease; }
 .story-step.is-active { opacity: 1; }
-.story-mobile-image { display: none; }
+.story-mobile-image { position: relative; display: none; }
 .horizontal-gallery { overflow: hidden; }
 .horizontal-track { display: flex; align-items: center; gap: 24px; width: max-content; min-height: 100vh; padding: 80px max(20px, calc((100vw - 1180px) / 2)); }
 .horizontal-intro { width: min(520px, calc(100vw - 40px)); flex: none; padding-right: clamp(20px, 4vw, 70px); }
@@ -211,7 +211,7 @@ body { margin: 0; overflow-x: clip; background: var(--color-background); color: 
   .restaurant-story { display: block; }
   .story-stage { display: none; }
   .story-step { min-height: 0; margin-bottom: 64px; opacity: 1; }
-  .story-mobile-image { position: relative; display: block; aspect-ratio: 4 / 3; margin-bottom: 28px; overflow: hidden; border-radius: var(--radius-media); }
+  .story-mobile-image { display: block; aspect-ratio: 4 / 3; margin-bottom: 28px; overflow: hidden; border-radius: var(--radius-media); }
   .horizontal-gallery { overflow: visible; }
   .horizontal-track { display: grid; width: auto; min-height: 0; padding: 0 max(20px, calc((100vw - 1180px) / 2)); }
   .horizontal-intro { width: auto; padding: 0 0 32px; }

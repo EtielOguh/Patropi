@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import { assetPath } from "@/config/business";
 
 const chapters = [
-  { title: "Buffet / self-service", text: "Uma escolha prática para montar a refeição no próprio ritmo, com a variedade que faz parte da experiência da casa.", src: "/images/buffet-patropi.webp", alt: "Buffet e salão do restaurante Patropi" },
-  { title: "Churrasco", text: "O churrasco ocupa um lugar central na identidade do Patropi e transforma a parada em parte da viagem.", src: "/images/carne-patropi.webp", alt: "Corte assado na churrasqueira do Patropi" },
-  { title: "Cozinha brasileira", text: "Sabores conhecidos e uma refeição acolhedora para quem está na estrada, em família ou passando pela região.", src: "/images/prato-buffet.webp", alt: "Pratos quentes servidos no buffet do Patropi" },
-  { title: "Culinária japonesa", text: "Uma das opções descritas nos canais públicos do Patropi, somando variedade à experiência do buffet.", src: "/images/buffet-patropi.webp", alt: "Vista do buffet do Patropi" },
+  { title: "Buffet / self-service", text: "Uma escolha prática para montar a refeição no próprio ritmo, com a variedade que faz parte da experiência da casa.", src: "/images/restaurante/buffet-perspectiva.webp", alt: "Buffet e salão do restaurante Patropi" },
+  { title: "Churrasco", text: "O churrasco ocupa um lugar central na identidade do Patropi e transforma a parada em parte da viagem.", src: "/images/restaurante/churrasco-principal.webp", alt: "Corte assado na churrasqueira do Patropi" },
+  { title: "Cozinha brasileira", text: "Sabores conhecidos e uma refeição acolhedora para quem está na estrada, em família ou passando pela região.", src: "/images/restaurante/cozinha-brasileira.webp", alt: "Pratos da cozinha brasileira servidos no buffet do Patropi" },
+  { title: "Culinária japonesa", text: "Uma das opções descritas nos canais públicos do Patropi, somando variedade à experiência do buffet.", src: "/images/restaurante/japonesa-principal.webp", alt: "Estação de culinária japonesa do Patropi" },
 ] as const;
 
 export function RestaurantStory() {

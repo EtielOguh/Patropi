@@ -13,8 +13,8 @@ import { business } from "@/config/business";
 
 const heroSlides = [
   { src: "/images/fachada-patropi.webp", alt: "Fachada iluminada do Hotel e Churrascaria Patropi", position: "center" },
-  { src: "/images/buffet-patropi.webp", alt: "Buffet e salão do restaurante Patropi", position: "center" },
-  { src: "/images/quarto-patropi.webp", alt: "Quarto do Hotel Patropi", position: "center 56%" },
+  { src: "/images/restaurante/buffet-principal.webp", alt: "Buffet completo do restaurante Patropi", position: "center" },
+  { src: "/images/hotel/quarto-standard.webp", alt: "Quarto do Hotel Patropi", position: "center 56%" },
 ] as const;
 
 export default function HomePage() {
@@ -48,7 +48,7 @@ export default function HomePage() {
 
       <section className="py-section-sm sm:py-section-lg">
         <div className="shell grid items-center gap-12 lg:grid-cols-[1.08fr_.92fr] lg:gap-20">
-          <ScrollReveal><RealPhoto src="/images/churrasco-patropi.webp" alt="Carne assada na churrasqueira do Patropi" sizes="(max-width: 1024px) 100vw, 50vw" className="service-visual aspect-[4/4.5]" /></ScrollReveal>
+          <ScrollReveal><RealPhoto src="/images/restaurante/churrasco-principal.webp" alt="Carne assada sendo servida na churrasqueira do Patropi" sizes="(max-width: 1024px) 100vw, 50vw" className="service-visual aspect-[4/4.5]" /></ScrollReveal>
           <ScrollReveal delay={120}>
             <SectionHeading eyebrow="Restaurante & churrascaria" title="Uma parada que vale a refeição." text="Buffet, churrasco e sabores variados em um ambiente preparado para receber viajantes, famílias e quem está por perto." />
             <Link href="/restaurante" className="btn-primary mt-8">Conhecer o restaurante <ArrowRight size={16} /></Link>
@@ -58,7 +58,7 @@ export default function HomePage() {
 
       <section className="bg-white py-section-sm sm:py-section-lg">
         <div className="shell grid items-center gap-12 lg:grid-cols-[.88fr_1.12fr] lg:gap-20">
-          <ScrollReveal className="lg:order-2"><RealPhoto src="/images/quarto-patropi.webp" alt="Quarto com cama de casal no Hotel Patropi" sizes="(max-width: 1024px) 100vw, 55vw" position="center 55%" className="service-visual aspect-[4/4.2]" /></ScrollReveal>
+          <ScrollReveal className="lg:order-2"><RealPhoto src="/images/hotel/suite-principal.webp" alt="Suíte principal do Hotel Patropi" sizes="(max-width: 1024px) 100vw, 55vw" position="center 55%" className="service-visual aspect-[4/4.2]" /></ScrollReveal>
           <ScrollReveal delay={120} className="lg:order-1">
             <SectionHeading eyebrow="Hotel Patropi" title="Uma pausa confortável para seguir viagem." text="Conforto e praticidade às margens da BR-101." />
             <Link href="/hotel" className="btn-primary mt-8">Conhecer o hotel <ArrowRight size={16} /></Link>
@@ -76,7 +76,7 @@ export default function HomePage() {
 
       <section className="py-section-sm sm:py-section-lg">
         <div className="shell">
-          <div className="flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between"><SectionHeading eyebrow="Galeria" title="Do prato ao descanso." text="Uma seleção de imagens reais publicadas nos canais oficiais do Patropi." /><Link href="/galeria" className="btn-secondary self-start">Ver galeria completa <ArrowRight size={16}/></Link></div>
+          <div className="flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between"><SectionHeading eyebrow="Galeria" title="Do prato ao descanso." text="Uma seleção de imagens reais do acervo do Patropi." /><Link href="/galeria" className="btn-secondary self-start">Ver galeria completa <ArrowRight size={16}/></Link></div>
           <div className="mt-12"><GalleryGrid limit={6} /></div>
         </div>
       </section>

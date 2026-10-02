@@ -110,6 +110,10 @@
     {
       "decision": "Use a custom accessible date-range calendar for hotel availability, presented as an anchored popover on desktop and a full-screen panel on mobile.",
       "reason": "Keep date selection touch-friendly, timezone-safe and visually integrated with the Patropi identity without adding a runtime dependency."
+    },
+    {
+      "decision": "Use a curated, category-driven photography catalog with editorial wide, portrait and featured placements.",
+      "reason": "Show the new first-party hotel and restaurant collection without visual repetition, preserve intentional crops and keep the gallery performant."
     }
   ],
   "evidence": [

@@ -5,11 +5,11 @@ import { useEffect, useRef } from "react";
 import { assetPath } from "@/config/business";
 
 const photos = [
-  { label: "Buffet", src: "/images/buffet-patropi.webp", alt: "Buffet e salão do restaurante Patropi" },
-  { label: "Churrasco", src: "/images/churrasco-patropi.webp", alt: "Carne assada na churrasqueira do Patropi" },
-  { label: "Pratos", src: "/images/prato-buffet.webp", alt: "Pratos quentes no buffet do Patropi" },
-  { label: "Hospitalidade", src: "/images/hospitalidade-patropi.webp", alt: "Atendimento no restaurante Patropi" },
-  { label: "Sobremesas", src: "/images/sobremesa-chocolate.webp", alt: "Sobremesa de chocolate do Patropi" },
+  { label: "Buffet", src: "/images/restaurante/buffet-principal.webp", alt: "Buffet completo do restaurante Patropi" },
+  { label: "Churrasco", src: "/images/restaurante/churrasco-principal.webp", alt: "Carne assada na churrasqueira do Patropi" },
+  { label: "Pratos", src: "/images/restaurante/cozinha-brasileira.webp", alt: "Pratos da cozinha brasileira no buffet do Patropi" },
+  { label: "Hospitalidade", src: "/images/restaurante/familia-a-mesa.webp", alt: "Família durante uma refeição no restaurante Patropi" },
+  { label: "Sobremesas", src: "/images/restaurante/sobremesa-chocolate.webp", alt: "Sobremesa de chocolate do Patropi" },
 ] as const;
 
 export function HorizontalGallery() {
@@ -46,7 +46,7 @@ export function HorizontalGallery() {
         <div className="horizontal-intro">
           <p className="eyebrow text-ember">Em imagens</p>
           <h2 className="mt-5 font-display text-display-2">Comida de verdade, registrada pelo próprio Patropi.</h2>
-          <p className="mt-5 max-w-lg text-body text-ink/75">Do buffet à hospitalidade, uma seleção de fotografias reais compartilhadas nos canais oficiais.</p>
+          <p className="mt-5 max-w-lg text-body text-ink/75">Do buffet à hospitalidade, uma seleção de fotografias reais do acervo do Patropi.</p>
         </div>
         {photos.map((photo, index) => (
           <figure key={photo.label} className={`horizontal-card ${index % 2 ? "lg:translate-y-10" : "lg:-translate-y-8"}`}>

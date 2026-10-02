@@ -3,22 +3,15 @@
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { galleryFilters, galleryItems, type GalleryItem } from "@/data/gallery";
 import { RealPhoto } from "./RealPhoto";
 
-const items = [
-  { category: "Hotel", label: "Fachada do Hotel e Churrascaria Patropi", src: "/images/fachada-patropi.webp", position: "center" },
-  { category: "Restaurante", label: "Buffet e salão do restaurante Patropi", src: "/images/buffet-patropi.webp", position: "center" },
-  { category: "Quartos", label: "Quarto com cama de casal no Hotel Patropi", src: "/images/quarto-patropi.webp", position: "center 55%" },
-  { category: "Gastronomia", label: "Carne assada na churrasqueira do Patropi", src: "/images/churrasco-patropi.webp", position: "center" },
-  { category: "Gastronomia", label: "Sobremesa de chocolate servida no Patropi", src: "/images/sobremesa-chocolate.webp", position: "center" },
-  { category: "Restaurante", label: "Equipe do Patropi recebendo uma cliente", src: "/images/equipe-patropi.webp", position: "center" },
-  { category: "Gastronomia", label: "Pratos quentes do buffet do Patropi", src: "/images/prato-buffet.webp", position: "center" },
-  { category: "Gastronomia", label: "Corte assado na churrasqueira", src: "/images/carne-patropi.webp", position: "center" },
-  { category: "Restaurante", label: "Atendimento e hospitalidade no restaurante", src: "/images/hospitalidade-patropi.webp", position: "center" },
-  { category: "Gastronomia", label: "Fatia de sobremesa do Patropi", src: "/images/sobremesa-patropi.webp", position: "center" },
-] as const;
-
-const filters = ["Todos", "Restaurante", "Gastronomia", "Hotel", "Quartos"];
+const layoutClass = (item: GalleryItem) => {
+  if (item.layout === "featured") return "sm:col-span-2 sm:row-span-2";
+  if (item.layout === "wide") return "sm:col-span-2";
+  if (item.layout === "tall") return "sm:row-span-2";
+  return "";
+};
 
 export function GalleryGrid({ limit }: { limit?: number }) {
   const [filter, setFilter] = useState("Todos");
@@ -28,7 +21,7 @@ export function GalleryGrid({ limit }: { limit?: number }) {
   const trigger = useRef<HTMLButtonElement | null>(null);
   const titleId = useId();
   const descriptionId = useId();
-  const shown = useMemo(() => (filter === "Todos" ? items : items.filter((item) => item.category === filter)).slice(0, limit), [filter, limit]);
+  const shown = useMemo(() => (filter === "Todos" ? galleryItems : galleryItems.filter((item) => item.category === filter)).slice(0, limit), [filter, limit]);
   const selected = selectedIndex === null ? null : shown[selectedIndex];
   const isOpen = selectedIndex !== null;
 
@@ -82,10 +75,10 @@ export function GalleryGrid({ limit }: { limit?: number }) {
 
   return (
     <>
-      {!limit && <div className="mb-10 flex flex-wrap gap-2" role="group" aria-label="Filtros da galeria">{filters.map((item) => <button type="button" key={item} onClick={() => selectFilter(item)} aria-pressed={filter === item} className={`min-h-11 rounded-pill px-4 py-2 text-sm font-bold transition-colors ${filter === item ? "bg-ink text-white" : "border border-ink/15 hover:bg-sand/50"}`}>{item}</button>)}</div>}
-      <div className="grid auto-rows-[220px] gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {!limit && <div className="mb-10 flex flex-wrap gap-2" role="group" aria-label="Filtros da galeria">{galleryFilters.map((item) => <button type="button" key={item} onClick={() => selectFilter(item)} aria-pressed={filter === item} className={`min-h-11 rounded-pill px-4 py-2 text-sm font-bold transition-colors ${filter === item ? "bg-ink text-white" : "border border-ink/15 hover:bg-sand/50"}`}>{item}</button>)}</div>}
+      <div className="grid auto-rows-[220px] grid-flow-row-dense gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((item, index) => (
-          <button type="button" key={item.src} onClick={(event) => open(index, event.currentTarget)} className={`${index === 0 && filter === "Todos" ? "sm:col-span-2 sm:row-span-2" : ""} ${index === 3 ? "sm:row-span-2" : ""} group relative overflow-hidden rounded-media text-left`} aria-label={`Ampliar: ${item.label} — ${item.category}`}>
+          <button type="button" key={item.src} onClick={(event) => open(index, event.currentTarget)} className={`${layoutClass(item)} group relative min-h-[220px] overflow-hidden rounded-media text-left`} aria-label={`Ampliar: ${item.label} — ${item.category}`}>
             <RealPhoto src={item.src} alt={item.label} position={item.position} className="h-full min-h-full" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
             <span className="absolute inset-x-0 bottom-0 translate-y-0 bg-gradient-to-t from-ink/80 to-transparent px-5 pb-4 pt-14 text-xs font-bold uppercase tracking-wider text-white opacity-100 transition duration-300 sm:translate-y-2 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-visible:translate-y-0 sm:group-focus-visible:opacity-100">{item.category}</span>
           </button>
@@ -99,7 +92,7 @@ export function GalleryGrid({ limit }: { limit?: number }) {
           <button type="button" ref={closeButton} className="absolute right-4 top-4 z-10 grid size-12 touch-manipulation place-items-center rounded-pill bg-white text-ink transition-colors hover:bg-cream" onClick={() => setSelectedIndex(null)} aria-label="Fechar lightbox"><X /></button>
           {shown.length > 1 && <button type="button" className="absolute left-3 z-10 grid size-11 touch-manipulation place-items-center rounded-pill bg-white/90 text-ink transition-colors hover:bg-white sm:left-7" onClick={(event) => { event.stopPropagation(); selectRelative(-1); }} aria-label="Fotografia anterior"><ChevronLeft /></button>}
           {shown.length > 1 && <button type="button" className="absolute right-3 z-10 grid size-11 touch-manipulation place-items-center rounded-pill bg-white/90 text-ink transition-colors hover:bg-white sm:right-7" onClick={(event) => { event.stopPropagation(); selectRelative(1); }} aria-label="Próxima fotografia"><ChevronRight /></button>}
-          <div className="relative z-[1] h-[78dvh] w-full max-w-5xl"><RealPhoto src={selected.src} alt={selected.label} position={selected.position} className="h-full rounded-media" sizes="100vw" caption={selected.label} /></div>
+          <div className="relative z-[1] h-[78dvh] w-full max-w-5xl"><RealPhoto src={selected.src} alt={selected.label} position={selected.position} fit="contain" className="h-full rounded-media bg-ink" sizes="100vw" caption={selected.label} /></div>
         </div>,
         document.body,
       )}

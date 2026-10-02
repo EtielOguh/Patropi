@@ -17,18 +17,18 @@ export const metadata: Metadata = {
   title: "Restaurante e Churrascaria",
   description: "Restaurante e churrascaria às margens da BR-101 em Casimiro de Abreu, com buffet, churrasco e sabores variados.",
   alternates: { canonical: absoluteUrl("/restaurante") },
-  openGraph: { title: "Restaurante e Churrascaria Patropi", description: "Buffet, churrasco e sabores variados às margens da BR-101.", url: absoluteUrl("/restaurante"), images: [{ url: absoluteUrl("/images/buffet-patropi.webp"), width: 1600, height: 900, alt: "Buffet do restaurante Patropi" }] },
-  twitter: { card: "summary_large_image", title: "Restaurante e Churrascaria Patropi", description: "Buffet, churrasco e sabores variados às margens da BR-101.", images: [absoluteUrl("/images/buffet-patropi.webp")] },
+  openGraph: { title: "Restaurante e Churrascaria Patropi", description: "Buffet, churrasco e sabores variados às margens da BR-101.", url: absoluteUrl("/restaurante"), images: [{ url: absoluteUrl("/images/restaurante/buffet-principal.webp"), width: 2200, height: 1467, alt: "Buffet do restaurante Patropi" }] },
+  twitter: { card: "summary_large_image", title: "Restaurante e Churrascaria Patropi", description: "Buffet, churrasco e sabores variados às margens da BR-101.", images: [absoluteUrl("/images/restaurante/buffet-principal.webp")] },
 };
 
 const heroSlides = [
-  { src: "/images/buffet-patropi.webp", alt: "Buffet completo do restaurante Patropi" },
-  { src: "/images/churrasco-patropi.webp", alt: "Churrasco preparado no Patropi", position: "center" },
-  { src: "/images/sobremesa-chocolate.webp", alt: "Sobremesa servida no Patropi", position: "center" },
+  { src: "/images/restaurante/buffet-principal.webp", alt: "Buffet completo do restaurante Patropi" },
+  { src: "/images/restaurante/familia-a-mesa.webp", alt: "Família durante uma refeição no restaurante Patropi", position: "center 45%" },
+  { src: "/images/restaurante/japonesa-principal.webp", alt: "Estação de culinária japonesa do Patropi", position: "center" },
 ] as const;
 
 export default function RestaurantePage() {
-  const schema = { "@context": "https://schema.org", "@type": "Restaurant", name: "Churrascaria Patropi", url: `${business.siteUrl}/restaurante`, image: [`${business.siteUrl}/images/buffet-patropi.webp`, `${business.siteUrl}/images/churrasco-patropi.webp`], telephone: business.restaurant.phone.href, servesCuisine: ["Brasileira", "Churrasco", "Japonesa"], address: { "@type": "PostalAddress", streetAddress: business.location.street, addressLocality: business.location.city, addressRegion: business.location.state, postalCode: business.location.postalCode, addressCountry: "BR" }, sameAs: [business.instagram.url, business.reviews.tripadvisorRestaurantUrl] };
+  const schema = { "@context": "https://schema.org", "@type": "Restaurant", name: "Churrascaria Patropi", url: `${business.siteUrl}/restaurante`, image: [`${business.siteUrl}/images/restaurante/buffet-principal.webp`, `${business.siteUrl}/images/restaurante/churrasco-principal.webp`], telephone: business.restaurant.phone.href, servesCuisine: ["Brasileira", "Churrasco", "Japonesa"], address: { "@type": "PostalAddress", streetAddress: business.location.street, addressLocality: business.location.city, addressRegion: business.location.state, postalCode: business.location.postalCode, addressCountry: "BR" }, sameAs: [business.instagram.url, business.reviews.tripadvisorRestaurantUrl] };
 
   return (
     <>
