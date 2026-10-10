@@ -19,9 +19,9 @@ const heroSlides = [
 
 export default function HomePage() {
   const schema = [
-    { "@context": "https://schema.org", "@type": "Organization", name: business.legalDisplayName, url: business.siteUrl, sameAs: [business.instagram.url] },
-    { "@context": "https://schema.org", "@type": "Restaurant", name: "Churrascaria Patropi", url: `${business.siteUrl}/restaurante`, telephone: business.restaurant.phone.href, address: { "@type": "PostalAddress", streetAddress: business.location.street, addressLocality: business.location.city, addressRegion: business.location.state, postalCode: business.location.postalCode, addressCountry: business.location.country } },
-    { "@context": "https://schema.org", "@type": "Hotel", name: "Hotel Patropi", url: `${business.siteUrl}/hotel`, telephone: business.hotel.phone.href, address: { "@type": "PostalAddress", streetAddress: business.location.street, addressLocality: business.location.city, addressRegion: business.location.state, postalCode: business.location.postalCode, addressCountry: business.location.country } },
+    { "@context": "https://schema.org", "@type": "Organization", name: business.legalDisplayName, url: business.siteUrl, email: business.email, sameAs: [business.instagram.url, business.hotelInstagram.url] },
+    { "@context": "https://schema.org", "@type": "Restaurant", name: "Churrascaria Patropi", url: `${business.siteUrl}/restaurante`, telephone: business.restaurant.phone.href, address: { "@type": "PostalAddress", streetAddress: business.location.street, addressLocality: business.location.city, addressRegion: business.location.state, postalCode: business.location.postalCode, addressCountry: business.location.country }, sameAs: [business.instagram.url] },
+    { "@context": "https://schema.org", "@type": "Hotel", name: "Hotel Patropi", url: `${business.siteUrl}/hotel`, telephone: business.hotel.phone.href, address: { "@type": "PostalAddress", streetAddress: business.location.street, addressLocality: business.location.city, addressRegion: business.location.state, postalCode: business.location.postalCode, addressCountry: business.location.country }, sameAs: [business.hotelInstagram.url] },
   ];
 
   return (
@@ -50,7 +50,7 @@ export default function HomePage() {
         <div className="shell grid items-center gap-12 lg:grid-cols-[1.08fr_.92fr] lg:gap-20">
           <ScrollReveal><RealPhoto src="/images/restaurante/churrasco-principal.webp" alt="Carne assada sendo servida na churrasqueira do Patropi" sizes="(max-width: 1024px) 100vw, 50vw" className="service-visual aspect-[4/4.5]" /></ScrollReveal>
           <ScrollReveal delay={120}>
-            <SectionHeading eyebrow="Restaurante & churrascaria" title="Uma parada que vale a refeição." text="Buffet, churrasco e sabores variados em um ambiente preparado para receber viajantes, famílias e quem está por perto." />
+            <SectionHeading eyebrow="Restaurante & churrascaria" title="Uma parada que vale a refeição." text="Buffet premium, comida japonesa e churrasco. Tudo com a qualidade que você e sua família merecem!" />
             <Link href="/restaurante" className="btn-primary mt-8">Conhecer o restaurante <ArrowRight size={16} /></Link>
           </ScrollReveal>
         </div>
@@ -58,7 +58,12 @@ export default function HomePage() {
 
       <section className="bg-white py-section-sm sm:py-section-lg">
         <div className="shell grid items-center gap-12 lg:grid-cols-[.88fr_1.12fr] lg:gap-20">
-          <ScrollReveal className="lg:order-2"><RealPhoto src="/images/hotel/suite-principal.webp" alt="Suíte principal do Hotel Patropi" sizes="(max-width: 1024px) 100vw, 55vw" position="center 55%" className="service-visual aspect-[4/4.2]" /></ScrollReveal>
+          <ScrollReveal className="lg:order-2">
+            <div className="grid gap-4 sm:grid-cols-12 sm:items-end sm:gap-5">
+              <RealPhoto src="/images/hotel/suite-principal.webp" alt="Suíte principal do Hotel Patropi" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 58vw, 34vw" position="center 55%" className="service-visual aspect-[4/3] sm:col-span-7 sm:aspect-[4/5]" />
+              <RealPhoto src="/images/hotel/cafe-da-manha-buffet.webp" alt="Café da manhã colonial servido no Hotel Patropi" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 42vw, 23vw" position="center" className="service-visual aspect-[4/3] sm:col-span-5 sm:mb-7" />
+            </div>
+          </ScrollReveal>
           <ScrollReveal delay={120} className="lg:order-1">
             <SectionHeading eyebrow="Hotel Patropi" title="Uma pausa confortável para seguir viagem." text="Conforto e praticidade às margens da BR-101." />
             <Link href="/hotel" className="btn-primary mt-8">Conhecer o hotel <ArrowRight size={16} /></Link>

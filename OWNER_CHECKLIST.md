@@ -8,8 +8,9 @@ O site mantém dados públicos divergentes centralizados em `src/config/business
 - [ ] Existência e dados de outras unidades da Rede Patropi
 - [ ] Telefone oficial do hotel
 - [ ] Telefone oficial do restaurante
-- [ ] Substituir e confirmar o WhatsApp temporário `22936180096`
-- [ ] E-mail de atendimento e e-mail de privacidade/LGPD
+- [x] WhatsApp oficial confirmado: `(22) 2778-2061`
+- [x] E-mail de atendimento confirmado: `hotelpatropi.casimiro@gmail.com`
+- [x] Canal de privacidade por e-mail: `hotelpatropi.casimiro@gmail.com`
 - [ ] Horários atuais, inclusive feriados
 - [ ] Categorias dos quartos, capacidade, camas e comodidades
 - [ ] Check-in, check-out, cancelamento, no-show e regras internas
@@ -21,7 +22,7 @@ O site mantém dados públicos divergentes centralizados em `src/config/business
 - [ ] Sistema/motor de reservas, caso exista
 - [ ] IDs do Google Places para avaliações dinâmicas
 - [ ] Chaves de GA4/GTM e texto final de consentimento
-- [ ] Validação jurídica das políticas publicadas como modelo
+- [ ] Validação jurídica final das políticas de Privacidade, Cookies e Termos
 
 ## Fotografias necessárias
 

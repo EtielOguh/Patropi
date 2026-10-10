@@ -20,11 +20,11 @@ export const metadata: Metadata = {
 };
 
 const amenities = [
-  { label: "Wi-Fi", icon: Wifi },
-  { label: "Café da manhã", icon: Coffee },
-  { label: "Estacionamento", icon: Car },
-  { label: "Ar-condicionado", icon: Snowflake },
-  { label: "TV", icon: Tv },
+  { label: "Wi-Fi", description: "Conexão para manter sua rotina.", icon: Wifi },
+  { label: "Café da manhã colonial", description: "Variedade para começar bem o dia.", icon: Coffee },
+  { label: "Estacionamento", description: "Praticidade para quem chega pela estrada.", icon: Car },
+  { label: "Ar-condicionado", description: "Mais conforto para o seu descanso.", icon: Snowflake },
+  { label: "TV", description: "Comodidade nos momentos de pausa.", icon: Tv },
 ] as const;
 
 const heroSlides = [
@@ -34,7 +34,7 @@ const heroSlides = [
 ] as const;
 
 export default function HotelPage() {
-  const schema = { "@context":"https://schema.org", "@type":"Hotel", name:"Hotel Patropi", url:`${business.siteUrl}/hotel`, image:[`${business.siteUrl}/images/fachada-patropi.webp`,`${business.siteUrl}/images/hotel/suite-principal.webp`,`${business.siteUrl}/images/hotel/cafe-da-manha-buffet.webp`], telephone:business.hotel.phone.href, address:{"@type":"PostalAddress",streetAddress:business.location.street,addressLocality:business.location.city,addressRegion:business.location.state,postalCode:business.location.postalCode,addressCountry:"BR"} };
+  const schema = { "@context":"https://schema.org", "@type":"Hotel", name:"Hotel Patropi", url:`${business.siteUrl}/hotel`, image:[`${business.siteUrl}/images/fachada-patropi.webp`,`${business.siteUrl}/images/hotel/suite-principal.webp`,`${business.siteUrl}/images/hotel/cafe-da-manha-buffet.webp`], telephone:business.hotel.phone.href, address:{"@type":"PostalAddress",streetAddress:business.location.street,addressLocality:business.location.city,addressRegion:business.location.state,postalCode:business.location.postalCode,addressCountry:"BR"}, sameAs:[business.hotelInstagram.url,business.reviews.tripadvisorHotelUrl] };
 
   return (
     <>
@@ -45,22 +45,40 @@ export default function HotelPage() {
 
       <section className="py-section-sm sm:py-section-lg">
         <div className="shell grid items-center gap-12 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
-          <ScrollReveal><SectionHeading eyebrow="Uma pausa conveniente" title="O essencial para recuperar as energias." text="Quartos e suítes são apresentados sem promessas exageradas: uma base confortável para quem viaja, trabalha ou visita a região."/></ScrollReveal>
+          <ScrollReveal><SectionHeading eyebrow="Uma pausa conveniente" title="O essencial para recuperar as energias." text="Quartos e suítes preparados para oferecer uma base confortável a quem viaja, trabalha ou visita a região."/></ScrollReveal>
           <ScrollReveal delay={120}><RealPhoto src="/images/hotel/quarto-standard.webp" alt="Quarto standard do Hotel Patropi" className="service-visual aspect-[4/3]" sizes="(max-width: 1024px) 100vw, 55vw" position="center 58%"/></ScrollReveal>
         </div>
       </section>
 
       <section className="bg-white py-section-sm sm:py-section-lg">
         <div className="shell">
-          <div className="grid gap-10 lg:grid-cols-2"><SectionHeading eyebrow="Estrutura" title="Comodidades para uma estadia prática." text="Os itens informados são apresentados de forma direta, para facilitar a consulta antes da viagem."/><p className="border-l border-gold pl-6 text-sm leading-6 text-ink/75">Comodidades baseadas em cadastros públicos e pendentes de confirmação final pelo estabelecimento.</p></div>
-          <div className="amenities-list mt-14">
-            {amenities.map(({ label, icon: Icon }) => <div key={label} className="amenity-item"><div className="amenity-content"><Icon className="text-olive" strokeWidth={1.5}/><p className="text-sm font-bold">{label}</p></div></div>)}
+          <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:gap-20">
+            <SectionHeading eyebrow="Estrutura" title="Conforto essencial para descansar e seguir viagem." text="Wi-Fi, café da manhã, estacionamento e quartos climatizados para tornar sua parada mais confortável."/>
+            <div className="self-start border-l border-gold pl-6 lg:mt-2">
+              <p className="text-xs font-bold uppercase tracking-[.18em] text-olive">Planeje sua estadia</p>
+              <h3 className="mt-3 font-display text-2xl leading-tight text-ink">Tire suas dúvidas com nossa equipe.</h3>
+              <p className="mt-3 max-w-md text-sm leading-6 text-ink/70">Fale conosco sobre comodidades, datas e opções de hospedagem.</p>
+              <a href={whatsappUrl("Olá! Gostaria de confirmar as comodidades disponíveis no Hotel Patropi.")} target="_blank" rel="noreferrer" className="btn-secondary mt-5"><MessageCircle size={16}/> Falar com o hotel</a>
+            </div>
           </div>
+          <ul className="amenities-list mt-14" aria-label="Comodidades do Hotel Patropi">
+            {amenities.map(({ label, description, icon: Icon }) => (
+              <li key={label} className="amenity-item">
+                <div className="amenity-content">
+                  <Icon aria-hidden="true" className="shrink-0 text-olive" size={28} strokeWidth={1.5}/>
+                  <div>
+                    <p className="text-sm font-bold text-ink">{label}</p>
+                    <p className="mt-2 text-xs leading-5 text-ink/65">{description}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
       <section className="py-section-sm sm:py-section-lg">
-        <div className="shell"><SectionHeading eyebrow="Acomodações" title="Imagens reais para escolher com mais clareza." text="Quartos, suíte e áreas do hotel apresentados em diferentes perspectivas. Categorias, capacidade, camas e tarifas serão incluídas somente após validação oficial."/>
+        <div className="shell"><SectionHeading eyebrow="Acomodações" title="Imagens reais para escolher com mais clareza." text="Conheça quartos, suítes e áreas do hotel por diferentes perspectivas. Para informações sobre categorias, capacidade e tarifas, fale com nossa equipe."/>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:auto-rows-[280px] lg:grid-cols-12">
             <ScrollReveal className="md:col-span-2 lg:col-span-7 lg:row-span-2"><RealPhoto src="/images/hotel/suite-principal.webp" alt="Suíte principal do Hotel Patropi" className="h-full min-h-[440px] rounded-media lg:min-h-0" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 58vw" position="center 55%"/></ScrollReveal>
             <ScrollReveal delay={80} className="lg:col-span-5"><RealPhoto src="/images/hotel/quarto-standard.webp" alt="Quarto standard do Hotel Patropi" className="h-full min-h-[280px] rounded-media lg:min-h-0" sizes="(max-width: 768px) 100vw, 50vw"/></ScrollReveal>

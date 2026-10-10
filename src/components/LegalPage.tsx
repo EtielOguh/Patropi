@@ -5,11 +5,10 @@ const documents = [
   { label: "Privacidade", href: "/privacidade" },
   { label: "Termos", href: "/termos" },
   { label: "Cookies", href: "/cookies" },
-  { label: "Hospedagem", href: "/politica-de-hospedagem" },
   { label: "Acessibilidade", href: "/acessibilidade" },
 ] as const;
 
-export function LegalPage({ eyebrow, title, updated = "23 de setembro de 2026", children }: { eyebrow: string; title: string; updated?: string; children: React.ReactNode }) {
+export function LegalPage({ eyebrow, title, updated = "10 de outubro de 2026", children }: { eyebrow: string; title: string; updated?: string; children: React.ReactNode }) {
   return (
     <>
       <section className="relative overflow-hidden bg-ink py-16 text-white sm:py-20">
@@ -18,7 +17,7 @@ export function LegalPage({ eyebrow, title, updated = "23 de setembro de 2026", 
           <nav className="mb-10 flex items-center gap-1 text-xs text-white/70" aria-label="Breadcrumb"><Link href="/">Início</Link><ChevronRight size={13}/><span>{eyebrow}</span></nav>
           <p className="eyebrow text-gold">{eyebrow}</p>
           <h1 className="mt-5 max-w-4xl font-display text-display-1-compact">{title}</h1>
-          <p className="mt-5 text-sm text-white/70">Modelo informativo · última atualização: {updated}</p>
+          <p className="mt-5 text-sm text-white/70">Última atualização: {updated}</p>
         </div>
       </section>
       <section className="py-16 sm:py-24">
