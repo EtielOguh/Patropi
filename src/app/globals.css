@@ -137,7 +137,7 @@ body { margin: 0; overflow-x: clip; background: var(--color-background); color: 
 .review-entry:hover .review-entry-quote { color: theme("colors.accent-light"); }
 .amenities-list { display: grid; border-block: 1px solid var(--color-border-strong); }
 .amenity-item + .amenity-item { border-top: 1px solid var(--color-border); }
-.amenity-content { display: flex; align-items: center; gap: 1rem; padding-block: 1.25rem; }
+.amenity-content { display: flex; align-items: flex-start; gap: 1rem; padding-block: 1.125rem; }
 .road-line { position: relative; height: 2px; overflow: visible; }
 .road-line span { position: absolute; inset: 0; transform-origin: left center; background: var(--color-accent); }
 .road-line i { position: absolute; right: 0; top: 50%; width: 11px; height: 11px; transform: translateY(-50%); border: 2px solid var(--color-accent); border-radius: var(--radius-pill); background: var(--color-background); }
@@ -183,7 +183,7 @@ body { margin: 0; overflow-x: clip; background: var(--color-background); color: 
   .amenities-list { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .amenity-item { border-top: 0 !important; }
   .amenity-item + .amenity-item { border-left: 1px solid var(--color-border); }
-  .amenity-content { min-height: 132px; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 1.75rem 1.25rem; }
+  .amenity-content { min-height: 168px; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 1.5rem 1.25rem; }
 }
 @media (max-width: 767px) {
   html { scroll-padding-bottom: var(--mobile-bar-reserve); }
@@ -200,7 +200,7 @@ body { margin: 0; overflow-x: clip; background: var(--color-background); color: 
 }
 @media (max-height: 600px) { .mobile-menu-content { justify-content: flex-start; } }
 @media (min-width: 768px) { .cookie-consent { bottom: 1rem; } }
-@media (min-width: 640px) and (max-width: 1023px) {
+@media (min-width: 480px) and (max-width: 1023px) {
   .amenities-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .amenity-item:nth-child(-n+2) { border-top: 0; }
   .amenity-item:nth-child(even) { border-left: 1px solid var(--color-border); }

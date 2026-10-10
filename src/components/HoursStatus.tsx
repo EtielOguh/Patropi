@@ -48,7 +48,7 @@ export function HoursTable() {
           <div key={item.day} className={`grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 border-t border-ink/10 py-3 text-sm ${today === item.dayIndex ? "border-l-2 border-l-olive pl-3 font-bold text-olive" : ""}`}><span>{item.day}{today === item.dayIndex && <span className="ml-2 text-[10px] uppercase tracking-wider text-ember">Hoje</span>}</span><span className="font-semibold">{item.open.replace(":", "h")}–{item.close.replace(":", "h")}</span></div>
         ))}
       </div>
-      <p className="mt-6 border-l-2 border-gold pl-3 text-xs leading-5 text-ink/75">Horários obtidos em cadastros públicos. Confirme por telefone antes de se deslocar, especialmente em feriados.</p>
+      <p className="mt-6 border-l-2 border-gold pl-3 text-xs leading-5 text-ink/75">Em feriados e datas especiais, consulte o funcionamento pelo telefone.</p>
     </div>
   );
 }

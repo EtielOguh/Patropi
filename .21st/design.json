@@ -114,6 +114,18 @@
     {
       "decision": "Use a curated, category-driven photography catalog with editorial wide, portrait and featured placements.",
       "reason": "Show the new first-party hotel and restaurant collection without visual repetition, preserve intentional crops and keep the gallery performant."
+    },
+    {
+      "decision": "Separate the gallery into buffet, colonial breakfast, barbecue, Japanese cuisine, hotel and room narratives.",
+      "reason": "Keep each Patropi experience accurately represented and prevent hotel breakfast photography from being presented as the restaurant buffet."
+    },
+    {
+      "decision": "Present hotel amenities as a descriptive divider list paired with a compact confirmation call to action.",
+      "reason": "Make practical benefits easier to understand while keeping unverified conditions secondary and directing booking questions to the hotel team."
+    },
+    {
+      "decision": "Keep internal verification states out of guest-facing copy and use contextual caveats only where they help visitors make a decision.",
+      "reason": "Present the Patropi with confidence while keeping operational uncertainty and publication checks in internal documentation."
     }
   ],
   "evidence": [

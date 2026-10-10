@@ -12,7 +12,6 @@ const routes: Array<{ path: string; changeFrequency: "weekly" | "monthly" | "yea
   { path: "/privacidade", changeFrequency: "yearly", priority: 0.3 },
   { path: "/termos", changeFrequency: "yearly", priority: 0.3 },
   { path: "/cookies", changeFrequency: "yearly", priority: 0.3 },
-  { path: "/politica-de-hospedagem", changeFrequency: "monthly", priority: 0.5 },
   { path: "/acessibilidade", changeFrequency: "yearly", priority: 0.3 },
 ];
 

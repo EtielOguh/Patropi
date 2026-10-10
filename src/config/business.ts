@@ -49,16 +49,21 @@ export const business = {
     hoursVerification: "needs-confirmation" as Verification,
   },
   whatsapp: {
-    label: "(22) 93618-0096",
-    digits: "5522936180096",
-    verification: "needs-confirmation" as Verification,
-    temporary: true,
+    label: "(22) 2778-2061",
+    digits: "552227782061",
+    verification: "confirmed" as Verification,
+    temporary: false,
   },
-  email: null as null | string,
+  email: "hotelpatropi.casimiro@gmail.com",
   instagram: {
     handle: "@churrascariapatropi",
     url: "https://www.instagram.com/churrascariapatropi/",
     verification: "public-source" as Verification,
+  },
+  hotelInstagram: {
+    handle: "@hotel_patropi",
+    url: "https://www.instagram.com/hotel_patropi/",
+    verification: "confirmed" as Verification,
   },
   reviews: {
     googleRestaurant: { rating: 4.5, count: 2700, updatedAt: "2026-09-23", verification: "public-source" as Verification },

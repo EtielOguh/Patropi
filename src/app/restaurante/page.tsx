@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const heroSlides = [
   { src: "/images/restaurante/buffet-principal.webp", alt: "Buffet completo do restaurante Patropi" },
-  { src: "/images/restaurante/familia-a-mesa.webp", alt: "Família durante uma refeição no restaurante Patropi", position: "center 45%" },
+  { src: "/images/restaurante/cozinha-brasileira.webp", alt: "Seleção de saladas, frios e acompanhamentos do buffet Patropi", position: "center" },
   { src: "/images/restaurante/japonesa-principal.webp", alt: "Estação de culinária japonesa do Patropi", position: "center" },
 ] as const;
 
@@ -41,7 +41,7 @@ export default function RestaurantePage() {
       <section className="py-section-sm sm:py-section-lg">
         <div className="shell grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:gap-24">
           <ScrollReveal><SectionHeading eyebrow="À mesa" title="Variedade, praticidade e uma pausa sem pressa." /></ScrollReveal>
-          <ScrollReveal delay={100}><p className="max-w-[62ch] text-body-lg text-ink/75">Fontes públicas descrevem uma operação com buffet/self-service, churrasco e culinárias brasileira e japonesa. A experiência é apresentada com clareza, sem promessas sobre cardápio, preços ou disponibilidade.</p><Link href="/restaurante/cardapio" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-ember">Consultar área do cardápio <ArrowRight size={15}/></Link></ScrollReveal>
+          <ScrollReveal delay={100}><p className="max-w-[62ch] text-body-lg text-ink/75">Buffet, churrasco, cozinha brasileira e culinária japonesa se encontram em uma experiência variada e acolhedora.</p><Link href="/restaurante/cardapio" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-ember">Conhecer sabores e cardápio <ArrowRight size={15}/></Link></ScrollReveal>
         </div>
       </section>
 
@@ -52,7 +52,7 @@ export default function RestaurantePage() {
 
       <section className="bg-white py-section-sm sm:py-section-lg">
         <div className="shell grid items-start gap-12 lg:grid-cols-[.75fr_1.25fr] lg:gap-20">
-          <div><SectionHeading eyebrow="Planeje sua visita" title="Horários claros, sem surpresa no caminho." text="Consulte o funcionamento indicado e confirme por telefone antes de sair, especialmente em feriados e datas especiais."/><a href={`tel:${business.restaurant.phone.href}`} className="btn-secondary mt-7"><Phone size={16}/> Ligar para o restaurante</a></div>
+          <div><SectionHeading eyebrow="Planeje sua visita" title="Horários claros, sem surpresa no caminho." text="Confira os horários e planeje sua parada. Em feriados e datas especiais, fale conosco antes de sair."/><a href={`tel:${business.restaurant.phone.href}`} className="btn-secondary mt-7"><Phone size={16}/> Ligar para o restaurante</a></div>
           <HoursTable />
         </div>
       </section>

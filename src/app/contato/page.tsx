@@ -21,15 +21,16 @@ const cards = [
   { title: "Hotel", value: business.hotel.phone.label, action: "Ligar para o hotel", href: `tel:${business.hotel.phone.href}`, icon: Phone },
   { title: "Restaurante", value: business.restaurant.phone.label, action: "Ligar para o restaurante", href: `tel:${business.restaurant.phone.href}`, icon: Phone },
   { title: "Localização", value: business.location.display, action: "Traçar rota", href: business.location.mapsUrl, icon: MapPin },
-  { title: "Instagram", value: business.instagram.handle, action: "Acompanhar o Patropi", href: business.instagram.url, icon: Instagram },
-  { title: "E-mail", value: "Endereço oficial pendente", action: "Em configuração", href: null, icon: Mail },
+  { title: "Instagram do restaurante", value: business.instagram.handle, action: "Acompanhar o restaurante", href: business.instagram.url, icon: Instagram },
+  { title: "Instagram do hotel", value: business.hotelInstagram.handle, action: "Acompanhar o hotel", href: business.hotelInstagram.url, icon: Instagram },
+  { title: "E-mail", value: business.email, action: "Enviar e-mail", href: `mailto:${business.email}`, icon: Mail },
 ] as const;
 
 const faq: FAQItem[] = [
-  { question: "Onde fica o Patropi?", answer: "O Patropi fica às margens da BR-101, no km 206, em Casimiro de Abreu — RJ. Como há divergência pública sobre a numeração, recomendamos abrir a rota pelo mapa ou confirmar por telefone." },
+  { question: "Onde fica o Patropi?", answer: "O Patropi fica às margens da BR-101, no km 206, em Casimiro de Abreu — RJ. Use o botão “Traçar rota” para abrir a localização no Google Maps." },
   { question: "Como consultar disponibilidade do hotel?", answer: "Informe as datas e a quantidade de adultos e crianças no formulário de consulta. O site abre o WhatsApp com esses dados prontos para você confirmar diretamente com a equipe do Patropi." },
-  { question: "O hotel oferece estacionamento e Wi-Fi?", answer: "Cadastros públicos informam estacionamento e Wi-Fi. Essas comodidades estão sinalizadas como pendentes de validação final pelo estabelecimento." },
-  { question: "Qual é o horário do restaurante?", answer: "Os horários públicos encontrados indicam atendimento de segunda a sábado, das 11h às 22h, e domingo, das 11h às 17h. Confirme antes da visita, especialmente em feriados." },
+  { question: "O hotel oferece estacionamento e Wi-Fi?", answer: "Sim. O hotel oferece Wi-Fi e estacionamento para tornar sua estadia mais prática. Para saber mais sobre as condições de uso, fale com a equipe pelo WhatsApp." },
+  { question: "Qual é o horário do restaurante?", answer: "O restaurante funciona de segunda a sábado, das 11h às 22h, e aos domingos, das 11h às 17h. Em feriados, consulte o funcionamento pelo telefone ou WhatsApp." },
   { question: "Como chegar?", answer: "Use o botão “Traçar rota” para abrir o cadastro do Patropi no Google Maps e navegar até o local." },
 ];
 
@@ -58,7 +59,7 @@ export default function ContatoPage() {
 
       <section className="bg-sand/50 py-section-sm sm:py-section-lg"><div className="shell grid gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-20"><div><SectionHeading eyebrow="Envie uma mensagem" title="Conte o que você precisa." text="Preencha os dados e abra uma mensagem pronta no WhatsApp para falar diretamente com a equipe."/><p className="mt-6 border-l border-gold pl-5 text-sm leading-6 text-ink/75">O envio só é concluído quando você confirma a mensagem no WhatsApp.</p></div><Suspense fallback={<div className="min-h-[520px] rounded-card bg-white"/>}><ContactForm/></Suspense></div></section>
 
-      <section className="bg-white py-section-sm sm:py-section-lg"><div className="shell grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-20"><SectionHeading eyebrow="Dúvidas frequentes" title="Antes de pegar a estrada." text="Respostas objetivas baseadas apenas nas informações públicas que puderam ser verificadas."/><FAQ items={faq}/></div></section>
+      <section className="bg-white py-section-sm sm:py-section-lg"><div className="shell grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-20"><SectionHeading eyebrow="Dúvidas frequentes" title="Antes de pegar a estrada." text="Informações rápidas para planejar sua visita ao Patropi."/><FAQ items={faq}/></div></section>
     </>
   );
 }

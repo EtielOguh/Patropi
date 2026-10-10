@@ -12,6 +12,8 @@ Fonte: <https://www.instagram.com/churrascariapatropi/>
 - `hospitalidade-patropi.webp` e `equipe-patropi.webp`: publicações de atendimento/equipe.
 - `churrasco-patropi.webp` e `carne-patropi.webp`: publicações da churrasqueira.
 
+Perfil do hotel: <https://www.instagram.com/hotel_patropi/>
+
 ## Perfil público do Hotel Patropi no Google
 
 Fonte: <https://www.google.com/maps?cid=17036698010645920330>
@@ -25,3 +27,5 @@ Todos os arquivos do site são cópias WebP otimizadas. Os originais não são r
 ## Acervo fornecido diretamente pelo Patropi
 
 As subpastas `hotel/` e `restaurante/` contêm derivados WebP otimizados do novo acervo fotográfico fornecido diretamente pelo estabelecimento em outubro de 2026. Os JPGs originais permanecem preservados em `fotos gerais/` e não são utilizados diretamente pelo site.
+
+Na galeria, o acervo é separado em buffet geral, café da manhã colonial, churrasco, culinária japonesa, hotel e quartos para preservar o contexto de cada fotografia.
